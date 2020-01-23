@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import ListBoard from './components/ListBoard';
+// import ListBoard from './components/ListBoard';
+import ListView from './components/ListView';
 import KanbanBoard from './components/KanbanBoard';
 
 Vue.use(Router)
@@ -12,12 +13,12 @@ export default new Router({
       {
         path: '/',
         name: 'top',
-        component: ListBoard
+        component: ListView
       },
       {
         path: '/list',
         name: 'list',
-        component: ListBoard
+        component: ListView
       },
       {
         path: '/kanban',

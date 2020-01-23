@@ -1,6 +1,5 @@
 <template>
   <div id="list-board">
-    <v-app>
       <h2>List View</h2>
       <form class="add-form" v-on:submit.prevent="doAdd">
         コメント
@@ -43,7 +42,6 @@
           </tr>
         </tbody>
       </table>
-    </v-app>
   </div>
 </template>
 

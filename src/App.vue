@@ -1,39 +1,56 @@
 <template>
   <v-app>
+    <!-- Navigator -->
     <v-app-bar 
       app
-      color="blue-grey"
-      dark>
+      dark
+      >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="headline">Multi View Todo App</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-toolbar-title>Multi View Todo App</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute left temporary>
-      <v-list nav dense>
-        <v-list-item-group>
-          <v-list-item>
-            <v-list-item-title>
-              <router-link to="/" class="title">Top</router-link>
-            </v-list-item-title>
+
+    <!-- Side Bar -->
+    <v-navigation-drawer 
+      v-model="drawer"
+      app
+      mobile-break-point="683"
+      width="200"
+      >
+      <v-list nav>
+          <v-list-item @click="routing('/')">
+            <v-list-item-action>
+              <v-icon>home</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                HOME
+              </v-list-item-title>
+            </v-list-item-content>
           </v-list-item>
-          <v-list-item>
-            <v-list-item-title>
-              <router-link to="/list" class="title">List View</router-link>
-            </v-list-item-title>
+          <v-list-item  @click="routing('/list')">
+            <v-list-item-action>
+              <v-icon>dns</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                List View
+              </v-list-item-title>
+            </v-list-item-content>
           </v-list-item>
-          <v-list-item>
-            <v-list-item-title>
-              <router-link to="/kanban" class="title">Kanban View</router-link>
-            </v-list-item-title>
+          <v-list-item  @click="routing('/kanban')">
+            <v-list-item-action>
+              <v-icon>dashboard</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Kanban View
+              </v-list-item-title>
+            </v-list-item-content>
           </v-list-item>
-        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
 
+    <!-- Content -->
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -41,6 +58,8 @@
 </template>
 
 <script>
+import router from './router';
+
 export default {
   name: "App",
 
@@ -48,7 +67,12 @@ export default {
     // HelloWorld,
   },
   data: () => ({
-    drawer: false
-  })
+    drawer: true
+  }),
+  methods: {
+    routing(path) {
+      router.push({path: path})
+    }
+  }
 };
 </script>
