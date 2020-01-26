@@ -4,9 +4,9 @@ export let todoStorage = {
     let todos = JSON.parse(
       localStorage.getItem(STORAGE_KEY) || '[]'
     )
-    todos.forEach(function(todo, index) {
-      todo.id = index
-    })
+    // todos.forEach(function(todo, index) {
+    //   todo.id = index
+    // })
     todoStorage.uid = todos.length
     return todos
   },
@@ -25,5 +25,11 @@ export let todoStorage = {
 
 export const getDatetime = function() {
   let today = new Date();
-  return today.getFullYear()+"/"+today.getMonth()+"/"+today.getDate()+" "+today.getHours()+":"+today.getMinutes()
+  let format = 'YYYY/MM/DD hh:mm'
+  format = format.replace('YYYY', today.getFullYear())
+  format = format.replace('MM', ("0"+today.getMonth()+1).slice(-2))
+  format = format.replace('DD', ("0"+today.getDate()).slice(-2))
+  format = format.replace('hh', ("0"+today.getHours()).slice(-2))
+  format = format.replace('mm', ("0"+today.getMinutes()).slice(-2))
+  return format
 }

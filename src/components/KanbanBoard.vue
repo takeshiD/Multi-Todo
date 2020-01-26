@@ -65,7 +65,11 @@ export default {
   },
   data: function() {
     return {
-      tasks: todoStorage().fetch()
+      // tasks: todoStorage().fetch()
+      tasks: [
+        {comment: "おっぱいなめたい", state: 0},
+        {comment: "おっぱいなめたい", state: 0}
+      ]
     };
   },
   created() {

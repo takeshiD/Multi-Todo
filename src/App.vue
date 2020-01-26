@@ -13,7 +13,7 @@
     <v-navigation-drawer 
       v-model="drawer"
       app
-      mobile-break-point="683"
+      mobile-break-point="sm"
       width="200"
       >
       <v-list nav>
