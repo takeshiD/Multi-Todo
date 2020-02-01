@@ -4,9 +4,6 @@ export let todoStorage = {
     let todos = JSON.parse(
       localStorage.getItem(STORAGE_KEY) || '[]'
     )
-    // todos.forEach(function(todo, index) {
-    //   todo.id = index
-    // })
     todoStorage.uid = todos.length
     return todos
   },
@@ -19,7 +16,7 @@ export let todoStorage = {
 -- storage json --
   id      : int
   comment : string
-  state   : 0, 1
+  state   : 0, 1, -1
   date    : string
 */
 

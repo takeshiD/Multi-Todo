@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 // import ListBoard from './components/ListBoard';
 import ListView from './components/ListView';
-import KanbanBoard from './components/KanbanBoard';
+import KanbanView from './components/KanbanView';
 
 Vue.use(Router)
 
@@ -23,7 +23,7 @@ export default new Router({
       {
         path: '/kanban',
         name: 'kanban',
-        component: KanbanBoard
+        component: KanbanView
       }
     ]
   })
